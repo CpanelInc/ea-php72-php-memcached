@@ -6,7 +6,7 @@
 Name: %{scl_version}-php-memcached
 Version: 3.1.3
 Summary: php-memcached extension for %{scl_version}
-%define release_prefix 5
+%define release_prefix 6
 Release: %{release_prefix}%{?dist}.cpanel
 License: MIT
 Group: Programming/Languages
@@ -21,7 +21,7 @@ BuildRequires: cyrus-sasl-devel
 BuildRequires: ea-libmemcached ea-libmemcached-devel
 Requires: %{scl_version}-php-common
 Requires: %{scl_version}-php-cli
-BuildRequires: %{scl_version} %{scl_version}-php-cli
+BuildRequires: %{scl_version}
 
 %description
 This is the PECL memcached extension, using the libmemcached library to connect
@@ -49,6 +49,9 @@ install -m 644 %{SOURCE1} %{buildroot}/%{ext_prefix}/%{conf_dir}/
 %config /%{ext_prefix}/%{conf_dir}/memcached.ini
 
 %changelog
+* Thu Sep 21 2023 Dan Muey <dan@cpanel.net> - 3.1.3-6
+- ZC-11194: Remove unnecessary `BuildRequires` of php-cli
+
 * Mon Apr 20 2020 Daniel Muey <dan@cpanel.net> - 3.1.3-5
 - ZC-6608: Fix Requires for PHP
 
